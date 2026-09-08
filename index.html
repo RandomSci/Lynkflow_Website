@@ -9,10 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --white: #ffffff; --bg: #f7f7f7;
-      --border: #e5e5e5; --text: #111111; --muted: #888888;
-    }
+    :root { --white: #ffffff; --bg: #f7f7f7; --border: #e5e5e5; --text: #111111; --muted: #888888; }
     html { scroll-behavior: smooth; }
     body { background: var(--white); color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
 
@@ -58,7 +55,6 @@
     .who-item h3 { font-size: 0.92rem; font-weight: 600; color: var(--text); margin-bottom: 8px; }
     .who-item p { font-size: 0.85rem; color: var(--muted); font-weight: 300; line-height: 1.65; }
 
-    /* POSTS — dynamically updated by Claude each session */
     .posts-list { border-top: 1px solid var(--border); }
     .post-row { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 22px 0; border-bottom: 1px solid var(--border); text-decoration: none; transition: opacity 0.15s; }
     .post-row:hover { opacity: 0.55; }
@@ -209,16 +205,13 @@
   <hr class="divider" />
   <div class="section" id="posts">
     <h2 class="section-heading">Latest posts</h2>
-    <!-- POSTS_START — Claude appends new rows here each session, newest first -->
-    <div class="posts-list" id="posts-list">
-      <!-- posts will appear here -->
+    <div class="posts-list">
       <a class="post-row" href="posts.html#phone-problem-not-lead-problem">
         <span class="post-row-title">It's not a lead problem. It's a phone problem.</span>
         <span class="post-row-date">Sep 9, 2026</span>
       </a>
     </div>
-    <!-- POSTS_END -->
-    <a class="view-all" href="posts.html">View all posts ↗</a>
+    <a class="view-all" href="posts.html">View all posts</a>
   </div>
 
   <div class="contact-wrap" id="contact">
@@ -229,21 +222,21 @@
       </div>
       <div class="contact-links">
         <a href="tel:+14013869119" class="contact-link">
-          <span class="contact-link-icon">📞</span>
+          <span class="contact-link-icon">&#128222;</span>
           <div class="contact-link-body">
             <span class="contact-link-label">Call Rex — Live Demo</span>
             <span class="contact-link-detail">+1 401 386 9119 · available 24/7</span>
           </div>
         </a>
         <a href="https://wa.me/639263026585" target="_blank" class="contact-link">
-          <span class="contact-link-icon">💬</span>
+          <span class="contact-link-icon">&#128172;</span>
           <div class="contact-link-body">
             <span class="contact-link-label">WhatsApp</span>
             <span class="contact-link-detail">+63 926 302 6585</span>
           </div>
         </a>
         <a href="mailto:lynkflowagent@gmail.com" class="contact-link">
-          <span class="contact-link-icon">✉️</span>
+          <span class="contact-link-icon">&#9993;</span>
           <div class="contact-link-body">
             <span class="contact-link-label">Email</span>
             <span class="contact-link-detail">lynkflowagent@gmail.com</span>

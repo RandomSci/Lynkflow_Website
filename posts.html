@@ -24,19 +24,16 @@
     .page-header h1 { font-family: 'DM Serif Display', serif; font-size: 2.4rem; font-weight: 400; letter-spacing: -0.02em; color: var(--text); margin-bottom: 10px; }
     .page-header p { font-size: 0.92rem; color: var(--muted); font-weight: 300; }
 
-    /* Each post is a full article section inside this page */
     .posts-container { max-width: 860px; margin: 0 auto; padding: 0 40px 80px; }
 
     .post-entry { padding: 56px 0; border-bottom: 1px solid var(--border); }
     .post-entry:last-child { border-bottom: none; }
-
     .post-entry-tag { font-size: 0.72rem; font-weight: 500; color: var(--muted); letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 14px; }
     .post-entry-title { font-family: 'DM Serif Display', serif; font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 400; letter-spacing: -0.02em; color: var(--text); line-height: 1.15; margin-bottom: 6px; }
     .post-entry-date { font-size: 0.78rem; color: var(--muted); margin-bottom: 28px; }
     .post-entry-body p { font-size: 0.95rem; color: #444; font-weight: 300; line-height: 1.82; margin-bottom: 20px; }
     .post-entry-body p strong { color: var(--text); font-weight: 500; }
     .post-entry-body h2 { font-family: 'DM Serif Display', serif; font-size: 1.2rem; font-weight: 400; color: var(--text); margin: 36px 0 12px; }
-
     .cta-inline { margin-top: 32px; display: inline-flex; align-items: center; gap: 8px; background: var(--text); color: #fff; font-size: 0.88rem; font-weight: 500; padding: 11px 22px; border-radius: 5px; text-decoration: none; transition: opacity 0.15s; }
     .cta-inline:hover { opacity: 0.82; }
 
@@ -47,7 +44,8 @@
     @media (max-width: 640px) {
       nav { padding: 0 20px; }
       .nav-links { display: none; }
-      .page-header { padding: 100px 20px 40px; page-header h1 { font-size: 1.8rem; } }
+      .page-header { padding: 100px 20px 40px; }
+      .page-header h1 { font-size: 1.8rem; }
       .posts-container { padding: 0 20px 60px; }
       footer { padding: 20px; }
     }
@@ -72,24 +70,23 @@
 
   <div class="posts-container">
 
-    <!-- POSTS_START â€” Claude prepends new post entries here, newest first -->
-    <!-- Each entry follows this pattern:
-
-    <article class="post-entry" id="post-slug-here">
-      <div class="post-entry-tag">Industry</div>
-      <h2 class="post-entry-title">Post title here</h2>
-      <div class="post-entry-date">Month Day, Year</div>
+    <article class="post-entry" id="phone-problem-not-lead-problem">
+      <div class="post-entry-tag">Plumbing</div>
+      <div class="post-entry-title">It's not a lead problem. It's a phone problem.</div>
+      <div class="post-entry-date">September 9, 2026</div>
       <div class="post-entry-body">
-        <p>Content paragraphs here...</p>
-        <h2>Subheading</h2>
-        <p>More content...</p>
+        <p>A plumber in Ohio told me he was losing 3 to 5 calls a day while working on jobs.</p>
+        <p>He couldn't answer while under a sink. By the time he called back, they already hired someone else.</p>
+        <p><strong>That's not a lead problem. That's a phone problem.</strong></p>
+        <h2>What actually happened</h2>
+        <p>We set up an AI voice agent that answers every call, qualifies the job, and logs the lead automatically. No hold music. No voicemail. A real conversation that captures everything you need.</p>
+        <p>He stopped losing those calls the same week.</p>
+        <h2>The calls you don't know about are the ones that hurt most</h2>
+        <p>Most contractors assume they're losing maybe one or two calls a week. The reality is usually much worse. Every unanswered call is a job that went to whoever picked up next on Google.</p>
+        <p><strong>If your phone is your pipeline, you can't afford to miss a single call.</strong> Rex answers every one â€” day or night, on the job or off.</p>
       </div>
       <a href="tel:+14013869119" class="cta-inline">Call Rex â€” Live Demo</a>
     </article>
-
-    -->
-        <article class="post-entry" id="phone-problem-not-lead-problem">Â      <div class="post-entry-tag">Plumbing</div>Â      <h2 class="post-entry-title">It's not a lead problem. It's a phone problem.</h2>Â      <div class="post-entry-date">September 9, 2026</div>Â      <div class="post-entry-body">Â        <p>A plumber in Ohio told me he was losing 3 to 5 calls a day while working on jobs.</p>Â        <p>He couldn't answer while under a sink. By the time he called back, they already hired someone else.</p>Â        <p><strong>That's not a lead problem. That's a phone problem.</strong></p>Â        <h2>What actually happened</h2>Â        <p>We set up an AI voice agent that answers every call, qualifies the job, and logs the lead automatically. No hold music. No voicemail. A real conversation that captures everything you need.</p>Â        <p>He stopped losing those calls the same week.</p>Â        <h2>The calls you don't know about are the ones that hurt most</h2>Â        <p>Most contractors assume they're losing maybe one or two calls a week. The reality is usually much worse. Every unanswered call is a job that went to whoever picked up next on Google.</p>Â        <p><strong>If your phone is your pipeline, you can't afford to miss a single call.</strong> Rex answers every one â€” day or night, on the job or off.</p>Â      </div>Â      <a href="tel:+14013869119" class="cta-inline">Call Rex â€” Live Demo</a>Â    </article>Â
-    <!-- POSTS_END -->
 
   </div>
 
