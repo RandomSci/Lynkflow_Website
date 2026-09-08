@@ -156,7 +156,7 @@
 
   <footer>
     <div class="footer-inner">
-      <p>&#169; 2026 Lynkflow</p>
+      <p>&#169; <span id="year"></span> Lynkflow</p>
       <div class="footer-links">
         <a href="posts.html">Insights</a>
         <a href="mailto:lynkflowagent@gmail.com">lynkflowagent@gmail.com</a>
@@ -175,6 +175,8 @@
     const saved = localStorage.getItem('lynkflow-theme') || 'light';
     html.setAttribute('data-theme', saved);
     themeToggle.textContent = saved === 'dark' ? '\u2600' : '\u263E';
+    document.getElementById('year').textContent = new Date().getFullYear();
+
     themeToggle.addEventListener('click', () => {
       const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
       html.setAttribute('data-theme', next);

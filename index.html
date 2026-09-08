@@ -321,7 +321,7 @@
     .pricing-features { list-style: none; display: flex; flex-direction: column; gap: 14px; margin-bottom: 36px; }
     .pricing-features li { display: flex; align-items: flex-start; gap: 12px; font-size: 0.87rem; color: var(--text); font-weight: 300; line-height: 1.5; }
     .pricing-card.featured .pricing-features li { color: rgba(255,255,255,0.8); }
-    .pricing-features li::before { content: '&#8212;'; color: var(--border); flex-shrink: 0; font-size: 0.8rem; margin-top: 2px; }
+    .pricing-features li::before { content: '\2014'; color: var(--border); flex-shrink: 0; font-size: 0.8rem; margin-top: 2px; }
     .pricing-card.featured .pricing-features li::before { color: rgba(255,255,255,0.25); }
     .pricing-cta {
       display: block; text-align: center;
@@ -779,7 +779,7 @@
   <!-- FOOTER -->
   <footer>
     <div class="footer-inner">
-      <p>&#169; 2026 Lynkflow</p>
+      <p>&#169; <span id="year"></span> Lynkflow</p>
       <div class="footer-links">
         <a href="posts.html">Insights</a>
         <a href="mailto:lynkflowagent@gmail.com">lynkflowagent@gmail.com</a>
@@ -846,6 +846,9 @@
       }, { threshold: 0.5 });
       counterObs.observe(el);
     });
+
+    // Dynamic year
+    document.getElementById("year").textContent = new Date().getFullYear();
 
     // FAQ accordion
     document.querySelectorAll('.faq-item').forEach(item => {
