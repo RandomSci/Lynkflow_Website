@@ -30,7 +30,7 @@
     .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
     .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.875rem; transition: color 0.15s; }
     .nav-links a:hover, .nav-links a.active { color: var(--text); }
-    .nav-cta { background: var(--text) !important; color: var(--bg) !important; padding: 9px 20px; border-radius: 6px; font-weight: 500 !important; }
+    .nav-cta { background: var(--text) !important; color: var(--bg) !important; padding: 9px 20px; border-radius: 6px; font-weight: 500 !important; font-size: 0.875rem; text-decoration: none; }
     .theme-toggle { width: 36px; height: 36px; border-radius: 6px; border: 1px solid var(--border); background: transparent; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1rem; transition: background 0.15s; }
     .theme-toggle:hover { background: var(--bg2); }
     .nav-burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
@@ -48,18 +48,21 @@
 
     .posts-container { max-width: 1100px; margin: 0 auto; padding: 0 48px 80px; }
 
-    /* POSTS_START — Claude prepends new entries here, newest first */
     .post-entry { padding: 64px 0; border-bottom: 1px solid var(--border); max-width: 720px; }
     .post-entry:last-child { border-bottom: none; }
     .post-entry-tag { font-size: 0.7rem; font-weight: 500; color: var(--muted); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 16px; }
     .post-entry-title { font-family: 'DM Serif Display', serif; font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 400; letter-spacing: -0.02em; color: var(--text); line-height: 1.15; margin-bottom: 8px; }
     .post-entry-date { font-size: 0.78rem; color: var(--muted); padding-bottom: 36px; margin-bottom: 36px; border-bottom: 1px solid var(--border); }
+
+    /* Video embed */
+    .post-video { margin-bottom: 36px; border-radius: 8px; overflow: hidden; background: #0a0a08; max-width: 540px; }
+    .post-video video { width: 100%; display: block; }
+
     .post-entry-body p { font-size: 0.97rem; color: var(--muted); font-weight: 300; line-height: 1.85; margin-bottom: 22px; }
     .post-entry-body p strong { color: var(--text); font-weight: 500; }
     .post-entry-body h2 { font-family: 'DM Serif Display', serif; font-size: 1.3rem; font-weight: 400; color: var(--text); margin: 40px 0 14px; letter-spacing: -0.01em; }
     .cta-inline { margin-top: 36px; display: inline-flex; align-items: center; gap: 8px; background: var(--text); color: var(--bg); font-size: 0.88rem; font-weight: 500; padding: 12px 22px; border-radius: 6px; text-decoration: none; transition: opacity 0.15s; }
     .cta-inline:hover { opacity: 0.82; }
-    /* POSTS_END */
 
     footer { background: var(--inv-bg); border-top: 1px solid rgba(255,255,255,0.07); }
     .footer-inner { max-width: 1100px; margin: 0 auto; padding: 28px 48px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
@@ -89,7 +92,7 @@
         <li><a href="posts.html" class="active">Insights</a></li>
       </ul>
       <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">&#9790;</button>
-      <a href="index.html#contact" class="nav-cta" style="text-decoration:none; font-size:0.875rem;">Get in touch</a>
+      <a href="index.html#contact" class="nav-cta">Get in touch</a>
       <button class="nav-burger" id="burger"><span></span><span></span><span></span></button>
     </div>
   </nav>
@@ -111,6 +114,24 @@
   <div class="posts-container">
 
     <!-- POSTS_START — Claude prepends new post entries here, newest first -->
+
+    <article class="post-entry" id="missed-call-lost-job">
+      <div class="post-entry-tag">Video</div>
+      <div class="post-entry-title">Missed call. Lost job.</div>
+      <div class="post-entry-date">September 10, 2026</div>
+      <div class="post-video">
+        <video autoplay loop muted playsinline>
+          <source src="https://media.posteverywhere.ai/users/11145/2026/09/08/video/1788899232734_lynkflow_missed_call_ad.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <div class="post-entry-body">
+        <p>Every unanswered call is money walking out the door. Not maybe. Definitely.</p>
+        <p>The person who called you also called three other businesses. The one that picked up got the job. You didn't even know they called.</p>
+        <p><strong>Rex answers every call. 24 hours a day, 7 days a week. In English and Spanish.</strong></p>
+      </div>
+      <a href="tel:+14013869119" class="cta-inline">Call Rex — Live Demo</a>
+    </article>
+
     <article class="post-entry" id="phone-problem-not-lead-problem">
       <div class="post-entry-tag">Plumbing</div>
       <div class="post-entry-title">It's not a lead problem. It's a phone problem.</div>
@@ -128,6 +149,7 @@
       </div>
       <a href="tel:+14013869119" class="cta-inline">Call Rex — Live Demo</a>
     </article>
+
     <!-- POSTS_END -->
 
   </div>
