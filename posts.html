@@ -1,53 +1,79 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Lynkflow posts — insights on AI voice agents, missed calls, and local business automation." />
-  <title>Posts — Lynkflow</title>
+  <meta name="description" content="Lynkflow insights — AI voice agents, missed calls, and local business automation." />
+  <title>Insights — Lynkflow</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root { --white: #ffffff; --bg: #f7f7f7; --border: #e5e5e5; --text: #111111; --muted: #888888; }
+    [data-theme="light"] {
+      --bg: #f5f4ef; --bg2: #eeedE6; --surface: #faf9f5;
+      --border: #d8d7cf; --text: #141412; --muted: #6e6e66;
+      --inv-bg: #141412; --inv-text: #ffffff; --inv-muted: rgba(255,255,255,0.5);
+      --nav-bg: rgba(245,244,239,0.94); --card-bg: #faf9f5; --card-hover: #f5f4ef;
+    }
+    [data-theme="dark"] {
+      --bg: #0f0f0d; --bg2: #161614; --surface: #1a1a17;
+      --border: #2a2a26; --text: #e8e7e0; --muted: #7a7a70;
+      --inv-bg: #e8e7e0; --inv-text: #0f0f0d; --inv-muted: rgba(0,0,0,0.5);
+      --nav-bg: rgba(15,15,13,0.94); --card-bg: #1a1a17; --card-hover: #202020;
+    }
     html { scroll-behavior: smooth; }
-    body { background: var(--white); color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    body { background: var(--bg); color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; transition: background 0.3s, color 0.3s; }
 
-    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 40px; height: 60px; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); }
-    .nav-logo { font-family: 'DM Serif Display', serif; font-size: 1.2rem; color: var(--text); text-decoration: none; }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; display: flex; align-items: center; justify-content: space-between; padding: 0 48px; height: 64px; background: var(--nav-bg); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); }
+    .nav-logo { font-family: 'DM Serif Display', serif; font-size: 1.25rem; color: var(--text); text-decoration: none; }
+    .nav-right { display: flex; align-items: center; gap: 32px; }
     .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
-    .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.88rem; transition: color 0.15s; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.875rem; transition: color 0.15s; }
     .nav-links a:hover, .nav-links a.active { color: var(--text); }
-    .nav-cta { background: var(--text) !important; color: #fff !important; padding: 8px 18px; border-radius: 5px; font-size: 0.85rem !important; font-weight: 500 !important; }
+    .nav-cta { background: var(--text) !important; color: var(--bg) !important; padding: 9px 20px; border-radius: 6px; font-weight: 500 !important; }
+    .theme-toggle { width: 36px; height: 36px; border-radius: 6px; border: 1px solid var(--border); background: transparent; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1rem; transition: background 0.15s; }
+    .theme-toggle:hover { background: var(--bg2); }
+    .nav-burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+    .nav-burger span { display: block; width: 22px; height: 1.5px; background: var(--text); }
+    .mobile-menu { display: none; position: fixed; top: 64px; left: 0; right: 0; z-index: 199; background: var(--nav-bg); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); padding: 24px 24px 32px; flex-direction: column; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { color: var(--text); text-decoration: none; font-size: 1.1rem; padding: 16px 0; border-bottom: 1px solid var(--border); display: block; }
+    .mobile-menu .mobile-cta { margin-top: 20px; background: var(--text); color: var(--bg) !important; padding: 14px; border-radius: 6px; text-align: center; font-weight: 500; border-bottom: none !important; }
 
-    .page-header { max-width: 860px; margin: 0 auto; padding: 120px 40px 56px; border-bottom: 1px solid var(--border); }
-    .page-header h1 { font-family: 'DM Serif Display', serif; font-size: 2.4rem; font-weight: 400; letter-spacing: -0.02em; color: var(--text); margin-bottom: 10px; }
-    .page-header p { font-size: 0.92rem; color: var(--muted); font-weight: 300; }
+    .page-header { max-width: 1100px; margin: 0 auto; padding: 120px 48px 64px; border-bottom: 1px solid var(--border); }
+    .page-header-tag { font-size: 0.72rem; font-weight: 500; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 20px; display: flex; align-items: center; gap: 14px; }
+    .page-header-tag::before { content: ''; width: 32px; height: 1px; background: var(--border); }
+    .page-header h1 { font-family: 'DM Serif Display', serif; font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 400; letter-spacing: -0.025em; color: var(--text); margin-bottom: 12px; }
+    .page-header p { font-size: 0.95rem; color: var(--muted); font-weight: 300; max-width: 480px; line-height: 1.75; }
 
-    .posts-container { max-width: 860px; margin: 0 auto; padding: 0 40px 80px; }
+    .posts-container { max-width: 1100px; margin: 0 auto; padding: 0 48px 80px; }
 
-    .post-entry { padding: 56px 0; border-bottom: 1px solid var(--border); }
+    /* POSTS_START — Claude prepends new entries here, newest first */
+    .post-entry { padding: 64px 0; border-bottom: 1px solid var(--border); max-width: 720px; }
     .post-entry:last-child { border-bottom: none; }
-    .post-entry-tag { font-size: 0.72rem; font-weight: 500; color: var(--muted); letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 14px; }
-    .post-entry-title { font-family: 'DM Serif Display', serif; font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 400; letter-spacing: -0.02em; color: var(--text); line-height: 1.15; margin-bottom: 6px; }
-    .post-entry-date { font-size: 0.78rem; color: var(--muted); margin-bottom: 28px; }
-    .post-entry-body p { font-size: 0.95rem; color: #444; font-weight: 300; line-height: 1.82; margin-bottom: 20px; }
+    .post-entry-tag { font-size: 0.7rem; font-weight: 500; color: var(--muted); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 16px; }
+    .post-entry-title { font-family: 'DM Serif Display', serif; font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 400; letter-spacing: -0.02em; color: var(--text); line-height: 1.15; margin-bottom: 8px; }
+    .post-entry-date { font-size: 0.78rem; color: var(--muted); padding-bottom: 36px; margin-bottom: 36px; border-bottom: 1px solid var(--border); }
+    .post-entry-body p { font-size: 0.97rem; color: var(--muted); font-weight: 300; line-height: 1.85; margin-bottom: 22px; }
     .post-entry-body p strong { color: var(--text); font-weight: 500; }
-    .post-entry-body h2 { font-family: 'DM Serif Display', serif; font-size: 1.2rem; font-weight: 400; color: var(--text); margin: 36px 0 12px; }
-    .cta-inline { margin-top: 32px; display: inline-flex; align-items: center; gap: 8px; background: var(--text); color: #fff; font-size: 0.88rem; font-weight: 500; padding: 11px 22px; border-radius: 5px; text-decoration: none; transition: opacity 0.15s; }
+    .post-entry-body h2 { font-family: 'DM Serif Display', serif; font-size: 1.3rem; font-weight: 400; color: var(--text); margin: 40px 0 14px; letter-spacing: -0.01em; }
+    .cta-inline { margin-top: 36px; display: inline-flex; align-items: center; gap: 8px; background: var(--text); color: var(--bg); font-size: 0.88rem; font-weight: 500; padding: 12px 22px; border-radius: 6px; text-decoration: none; transition: opacity 0.15s; }
     .cta-inline:hover { opacity: 0.82; }
+    /* POSTS_END */
 
-    footer { max-width: 860px; margin: 0 auto; padding: 24px 40px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
-    footer p, footer a { font-size: 0.8rem; color: var(--muted); text-decoration: none; }
-    footer a:hover { color: var(--text); }
+    footer { background: var(--inv-bg); border-top: 1px solid rgba(255,255,255,0.07); }
+    .footer-inner { max-width: 1100px; margin: 0 auto; padding: 28px 48px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+    footer p, footer a { font-size: 0.78rem; color: var(--inv-muted); text-decoration: none; }
+    footer a:hover { color: rgba(255,255,255,0.7); }
+    .footer-links { display: flex; gap: 24px; }
 
-    @media (max-width: 640px) {
-      nav { padding: 0 20px; }
+    @media (max-width: 860px) {
+      nav { padding: 0 24px; }
       .nav-links { display: none; }
-      .page-header { padding: 100px 20px 40px; }
-      .page-header h1 { font-size: 1.8rem; }
-      .posts-container { padding: 0 20px 60px; }
-      footer { padding: 20px; }
+      .nav-burger { display: flex; }
+      .page-header { padding: 100px 24px 48px; }
+      .posts-container { padding: 0 24px 60px; }
+      .footer-inner { padding: 24px; flex-direction: column; }
     }
   </style>
 </head>
@@ -55,21 +81,36 @@
 
   <nav>
     <a href="index.html" class="nav-logo">Lynkflow</a>
-    <ul class="nav-links">
-      <li><a href="index.html#how">How it works</a></li>
-      <li><a href="index.html#who">Who it's for</a></li>
-      <li><a href="posts.html" class="active">Posts</a></li>
-      <li><a href="index.html#contact" class="nav-cta">Get in touch</a></li>
-    </ul>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="index.html#problem">Problem</a></li>
+        <li><a href="index.html#how">How it works</a></li>
+        <li><a href="index.html#pricing">Pricing</a></li>
+        <li><a href="posts.html" class="active">Insights</a></li>
+      </ul>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">&#9790;</button>
+      <a href="index.html#contact" class="nav-cta" style="text-decoration:none; font-size:0.875rem;">Get in touch</a>
+      <button class="nav-burger" id="burger"><span></span><span></span><span></span></button>
+    </div>
   </nav>
 
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html#problem">Problem</a>
+    <a href="index.html#how">How it works</a>
+    <a href="index.html#pricing">Pricing</a>
+    <a href="posts.html">Insights</a>
+    <a href="index.html#contact" class="mobile-cta">Get in touch</a>
+  </div>
+
   <div class="page-header">
-    <h1>Posts</h1>
-    <p>Insights on AI voice agents, missed calls, and local business automation.</p>
+    <div class="page-header-tag">Insights</div>
+    <h1>From the Lynkflow blog.</h1>
+    <p>Real talk about missed calls, local business automation, and AI voice agents — updated regularly.</p>
   </div>
 
   <div class="posts-container">
 
+    <!-- POSTS_START — Claude prepends new post entries here, newest first -->
     <article class="post-entry" id="phone-problem-not-lead-problem">
       <div class="post-entry-tag">Plumbing</div>
       <div class="post-entry-title">It's not a lead problem. It's a phone problem.</div>
@@ -87,13 +128,38 @@
       </div>
       <a href="tel:+14013869119" class="cta-inline">Call Rex — Live Demo</a>
     </article>
+    <!-- POSTS_END -->
 
   </div>
 
   <footer>
-    <p>© 2026 Lynkflow</p>
-    <a href="mailto:lynkflowagent@gmail.com">lynkflowagent@gmail.com</a>
+    <div class="footer-inner">
+      <p>&#169; 2026 Lynkflow</p>
+      <div class="footer-links">
+        <a href="posts.html">Insights</a>
+        <a href="mailto:lynkflowagent@gmail.com">lynkflowagent@gmail.com</a>
+      </div>
+    </div>
   </footer>
+
+  <script>
+    const burger = document.getElementById('burger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    burger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.remove('open')));
+
+    const themeToggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('lynkflow-theme') || 'light';
+    html.setAttribute('data-theme', saved);
+    themeToggle.textContent = saved === 'dark' ? '\u2600' : '\u263E';
+    themeToggle.addEventListener('click', () => {
+      const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      localStorage.setItem('lynkflow-theme', next);
+      themeToggle.textContent = next === 'dark' ? '\u2600' : '\u263E';
+    });
+  </script>
 
 </body>
 </html>
