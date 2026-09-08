@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Lynkflow builds AI voice agents for local businesses that miss calls and lose customers. Never miss a lead again." />
+  <title>Lynkflow — AI Voice Agents for Local Business</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --white: #ffffff; --bg: #f7f7f7;
+      --border: #e5e5e5; --text: #111111; --muted: #888888;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--white); color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 40px; height: 60px; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); }
+    .nav-logo { font-family: 'DM Serif Display', serif; font-size: 1.2rem; color: var(--text); text-decoration: none; }
+    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.88rem; transition: color 0.15s; }
+    .nav-links a:hover { color: var(--text); }
+    .nav-cta { background: var(--text) !important; color: #fff !important; padding: 8px 18px; border-radius: 5px; font-size: 0.85rem !important; font-weight: 500 !important; }
+
+    .hero { padding: 148px 40px 96px; max-width: 860px; margin: 0 auto; }
+    .hero h1 { font-family: 'DM Serif Display', serif; font-size: clamp(2.6rem, 6vw, 4.4rem); font-weight: 400; line-height: 1.07; letter-spacing: -0.025em; color: var(--text); margin-bottom: 24px; max-width: 760px; }
+    .hero p { font-size: 1.05rem; color: var(--muted); max-width: 480px; line-height: 1.75; font-weight: 300; margin-bottom: 40px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+    .btn-primary { display: inline-flex; align-items: center; background: var(--text); color: #fff; font-size: 0.9rem; font-weight: 500; padding: 12px 24px; border-radius: 5px; text-decoration: none; transition: opacity 0.15s; }
+    .btn-primary:hover { opacity: 0.82; }
+    .btn-ghost { display: inline-flex; align-items: center; background: transparent; color: var(--muted); font-size: 0.9rem; font-weight: 400; padding: 12px 24px; border-radius: 5px; border: 1px solid var(--border); text-decoration: none; transition: border-color 0.15s, color 0.15s; }
+    .btn-ghost:hover { border-color: #bbb; color: var(--text); }
+
+    .demo-strip { background: var(--bg); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 28px 40px; display: flex; align-items: center; justify-content: center; gap: 60px; flex-wrap: wrap; }
+    .demo-strip p { font-size: 0.9rem; color: var(--muted); }
+    .demo-number { font-family: 'DM Serif Display', serif; font-size: 1.7rem; color: var(--text); letter-spacing: -0.01em; }
+
+    .section { max-width: 860px; margin: 0 auto; padding: 88px 40px; }
+    hr.divider { border: none; border-top: 1px solid var(--border); }
+    .section-heading { font-family: 'DM Serif Display', serif; font-size: clamp(1.7rem, 3.5vw, 2.5rem); font-weight: 400; letter-spacing: -0.02em; color: var(--text); line-height: 1.12; margin-bottom: 14px; max-width: 540px; }
+    .section-sub { font-size: 0.93rem; color: var(--muted); font-weight: 300; margin-bottom: 52px; max-width: 420px; line-height: 1.7; }
+
+    .problem-rows { border-top: 1px solid var(--border); }
+    .problem-row { display: grid; grid-template-columns: 180px 1fr; gap: 32px; padding: 28px 0; border-bottom: 1px solid var(--border); }
+    .problem-label { font-size: 0.82rem; color: var(--muted); padding-top: 3px; }
+    .problem-text { font-size: 0.95rem; color: var(--text); font-weight: 300; line-height: 1.7; }
+
+    .steps { border-top: 1px solid var(--border); }
+    .step { display: grid; grid-template-columns: 40px 1fr; gap: 20px; padding: 32px 0; border-bottom: 1px solid var(--border); }
+    .step-num { font-family: 'DM Serif Display', serif; font-size: 1rem; color: #ccc; padding-top: 3px; }
+    .step-content h3 { font-size: 0.95rem; font-weight: 600; color: var(--text); margin-bottom: 7px; }
+    .step-content p { font-size: 0.88rem; color: var(--muted); font-weight: 300; line-height: 1.7; }
+
+    .who-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); }
+    .who-item { background: var(--white); padding: 28px 24px; transition: background 0.15s; }
+    .who-item:hover { background: var(--bg); }
+    .who-item h3 { font-size: 0.92rem; font-weight: 600; color: var(--text); margin-bottom: 8px; }
+    .who-item p { font-size: 0.85rem; color: var(--muted); font-weight: 300; line-height: 1.65; }
+
+    /* POSTS — dynamically updated by Claude each session */
+    .posts-list { border-top: 1px solid var(--border); }
+    .post-row { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 22px 0; border-bottom: 1px solid var(--border); text-decoration: none; transition: opacity 0.15s; }
+    .post-row:hover { opacity: 0.55; }
+    .post-row-title { font-size: 0.92rem; color: var(--text); font-weight: 400; }
+    .post-row-date { font-size: 0.78rem; color: var(--muted); white-space: nowrap; }
+    .view-all { display: inline-flex; align-items: center; gap: 5px; font-size: 0.85rem; color: var(--muted); text-decoration: none; margin-top: 22px; transition: color 0.15s; }
+    .view-all:hover { color: var(--text); }
+
+    .contact-wrap { background: var(--bg); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .contact-inner { max-width: 860px; margin: 0 auto; padding: 88px 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+    .contact-left h2 { font-family: 'DM Serif Display', serif; font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 400; letter-spacing: -0.02em; color: var(--text); line-height: 1.15; margin-bottom: 14px; }
+    .contact-left p { font-size: 0.9rem; color: var(--muted); font-weight: 300; line-height: 1.7; }
+    .contact-links { display: flex; flex-direction: column; gap: 10px; }
+    .contact-link { display: flex; align-items: center; gap: 14px; padding: 16px 18px; background: var(--white); border: 1px solid var(--border); border-radius: 5px; text-decoration: none; transition: border-color 0.15s; }
+    .contact-link:hover { border-color: #aaa; }
+    .contact-link-icon { font-size: 1rem; width: 28px; text-align: center; flex-shrink: 0; }
+    .contact-link-body { display: flex; flex-direction: column; gap: 2px; }
+    .contact-link-label { font-size: 0.88rem; font-weight: 500; color: var(--text); }
+    .contact-link-detail { font-size: 0.75rem; color: var(--muted); }
+
+    footer { max-width: 860px; margin: 0 auto; padding: 24px 40px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+    footer p, footer a { font-size: 0.8rem; color: var(--muted); text-decoration: none; }
+    footer a:hover { color: var(--text); }
+
+    @media (max-width: 640px) {
+      nav { padding: 0 20px; }
+      .nav-links { display: none; }
+      .hero { padding: 100px 20px 72px; }
+      .demo-strip { padding: 24px 20px; gap: 16px; flex-direction: column; align-items: flex-start; }
+      .section { padding: 64px 20px; }
+      .problem-row { grid-template-columns: 1fr; gap: 6px; }
+      .who-grid { grid-template-columns: 1fr; }
+      .contact-inner { grid-template-columns: 1fr; gap: 40px; padding: 64px 20px; }
+      footer { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="/" class="nav-logo">Lynkflow</a>
+    <ul class="nav-links">
+      <li><a href="#how">How it works</a></li>
+      <li><a href="#who">Who it's for</a></li>
+      <li><a href="posts.html">Posts</a></li>
+      <li><a href="#contact" class="nav-cta">Get in touch</a></li>
+    </ul>
+  </nav>
+
+  <div class="hero">
+    <h1>Your business loses money every call you miss.</h1>
+    <p>Lynkflow builds AI voice agents that answer calls, qualify leads, and follow up — 24 hours a day, in English and Spanish.</p>
+    <div class="hero-actions">
+      <a href="tel:+14013869119" class="btn-primary">Call Rex — Live Demo</a>
+      <a href="#contact" class="btn-ghost">Get in touch</a>
+    </div>
+  </div>
+
+  <div class="demo-strip">
+    <p>Hear it yourself — call Rex, our AI agent, right now. No pitch. Just the real thing.</p>
+    <div class="demo-number">+1 401 386 9119</div>
+  </div>
+
+  <hr class="divider" />
+  <div class="section" id="problem">
+    <h2 class="section-heading">The calls you miss are the jobs you lose.</h2>
+    <p class="section-sub">Most local businesses lose leads not because of price or quality — but because nobody picked up.</p>
+    <div class="problem-rows">
+      <div class="problem-row">
+        <span class="problem-label">On the job</span>
+        <span class="problem-text">A customer calls while you're under a sink or inside a panel. No answer. They call the next person on Google. You never knew they called.</span>
+      </div>
+      <div class="problem-row">
+        <span class="problem-label">After hours</span>
+        <span class="problem-text">Someone needs to book at 11pm. You reply at 9am. They already hired your competitor two hours earlier.</span>
+      </div>
+      <div class="problem-row">
+        <span class="problem-label">No-shows</span>
+        <span class="problem-text">An appointment is booked. No reminder goes out. They forget. The slot is wasted and you can't fill it last minute.</span>
+      </div>
+      <div class="problem-row">
+        <span class="problem-label">Receptionist cost</span>
+        <span class="problem-text">You hire someone to answer phones. Two grand a month. Gone in July. Sick on Tuesdays. Calls still get missed.</span>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+  <div class="section" id="how">
+    <h2 class="section-heading">How it works</h2>
+    <p class="section-sub">Rex handles the front line so you can focus on the actual work.</p>
+    <div class="steps">
+      <div class="step">
+        <span class="step-num">1</span>
+        <div class="step-content">
+          <h3>Rex answers every call</h3>
+          <p>Instantly, day or night. Speaks naturally in English and Spanish. Handles the conversation like a trained staff member — no phone tree, no hold music.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="step-num">2</span>
+        <div class="step-content">
+          <h3>Qualifies and captures the lead</h3>
+          <p>Rex asks the right questions, captures the caller's details, and understands what they need. Every lead is logged automatically into your system.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="step-num">3</span>
+        <div class="step-content">
+          <h3>Follows up automatically</h3>
+          <p>Appointment reminders, follow-up calls, confirmation messages — handled on schedule so leads don't go cold and no-shows drop.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="step-num">4</span>
+        <div class="step-content">
+          <h3>You close. Rex does the rest.</h3>
+          <p>You only deal with warm, qualified leads who are ready to talk. The admin is gone. You focus on the work that actually makes you money.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+  <div class="section" id="who">
+    <h2 class="section-heading">Built for businesses that run on calls.</h2>
+    <p class="section-sub">If your phone is your pipeline and you miss calls, Lynkflow is built for you.</p>
+    <div class="who-grid">
+      <div class="who-item">
+        <h3>Plumbers & Electricians</h3>
+        <p>You can't answer when you're on the job. Rex handles every call while you work.</p>
+      </div>
+      <div class="who-item">
+        <h3>Clinics & Dental Offices</h3>
+        <p>Reduce no-shows, confirm appointments, and never miss a new patient inquiry.</p>
+      </div>
+      <div class="who-item">
+        <h3>Real Estate Agents</h3>
+        <p>Leads go cold in minutes. Rex responds within seconds, any time of day.</p>
+      </div>
+      <div class="who-item">
+        <h3>Any local service business</h3>
+        <p>If customers call before they hire, you need Rex answering before they move on.</p>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+  <div class="section" id="posts">
+    <h2 class="section-heading">Latest posts</h2>
+    <!-- POSTS_START — Claude appends new rows here each session, newest first -->
+    <div class="posts-list" id="posts-list">
+      <!-- posts will appear here -->
+      <a class="post-row" href="posts.html#phone-problem-not-lead-problem">
+        <span class="post-row-title">It's not a lead problem. It's a phone problem.</span>
+        <span class="post-row-date">Sep 9, 2026</span>
+      </a>
+    </div>
+    <!-- POSTS_END -->
+    <a class="view-all" href="posts.html">View all posts ↗</a>
+  </div>
+
+  <div class="contact-wrap" id="contact">
+    <div class="contact-inner">
+      <div class="contact-left">
+        <h2>Ready to stop missing calls?</h2>
+        <p>Talk to us directly or call Rex to hear the agent live. Setup takes days, not months.</p>
+      </div>
+      <div class="contact-links">
+        <a href="tel:+14013869119" class="contact-link">
+          <span class="contact-link-icon">📞</span>
+          <div class="contact-link-body">
+            <span class="contact-link-label">Call Rex — Live Demo</span>
+            <span class="contact-link-detail">+1 401 386 9119 · available 24/7</span>
+          </div>
+        </a>
+        <a href="https://wa.me/639263026585" target="_blank" class="contact-link">
+          <span class="contact-link-icon">💬</span>
+          <div class="contact-link-body">
+            <span class="contact-link-label">WhatsApp</span>
+            <span class="contact-link-detail">+63 926 302 6585</span>
+          </div>
+        </a>
+        <a href="mailto:lynkflowagent@gmail.com" class="contact-link">
+          <span class="contact-link-icon">✉️</span>
+          <div class="contact-link-body">
+            <span class="contact-link-label">Email</span>
+            <span class="contact-link-detail">lynkflowagent@gmail.com</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2026 Lynkflow</p>
+    <a href="mailto:lynkflowagent@gmail.com">lynkflowagent@gmail.com</a>
+  </footer>
+
+</body>
+</html>

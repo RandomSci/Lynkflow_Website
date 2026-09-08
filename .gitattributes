@@ -1,0 +1,27 @@
+# Images
+*.jpg binary
+*.jpeg binary
+*.png binary
+*.webp binary
+*.gif binary
+*.ico binary
+*.svg text
+
+# Videos
+*.mp4 binary
+*.webm binary
+*.mov binary
+*.avi binary
+
+# Fonts
+*.woff binary
+*.woff2 binary
+*.ttf binary
+
+# HTML/CSS/JS — text with LF line endings
+*.html text eol=lf
+*.css text eol=lf
+*.js text eol=lf
+*.json text eol=lf
+*.md text eol=lf
+*.sh text eol=lf
