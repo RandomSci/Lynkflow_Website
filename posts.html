@@ -1,44 +1,103 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="dark">
 <head>
+  <script>
+    (function(){
+      var t = localStorage.getItem('lynkflow-theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Lynkflow insights — AI voice agents, missed calls, and local business automation." />
-  <title>Insights — Lynkflow</title>
+  <title>Insights | Lynkflow — AI Voice Agents &amp; Missed Call Recovery</title>
+  <meta name="description" content="Practical insights on missed calls, AI voice agents, and local business automation. Real examples from plumbers, clinics, and contractors who stopped losing jobs to unanswered phones." />
+  <meta name="keywords" content="missed calls small business, AI voice agent blog, answering service for contractors, plumber missed calls, clinic no-show reduction, AI receptionist insights, local business automation" />
+  <meta name="author" content="Lynkflow" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <link rel="canonical" href="https://randomsci.github.io/Lynkflow_Website/posts.html" />
+
+  <meta property="og:type" content="blog" />
+  <meta property="og:site_name" content="Lynkflow" />
+  <meta property="og:title" content="Insights | Lynkflow — AI Voice Agents &amp; Missed Call Recovery" />
+  <meta property="og:description" content="Practical insights on missed calls, AI voice agents, and local business automation." />
+  <meta property="og:url" content="https://randomsci.github.io/Lynkflow_Website/posts.html" />
+  <meta property="og:locale" content="en_US" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Insights | Lynkflow" />
+  <meta name="twitter:description" content="Practical insights on missed calls, AI voice agents, and local business automation." />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "Lynkflow Insights",
+    "description": "Insights on AI voice agents, missed calls, and local business automation.",
+    "url": "https://randomsci.github.io/Lynkflow_Website/posts.html",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Lynkflow",
+      "url": "https://randomsci.github.io/Lynkflow_Website/"
+    },
+    "blogPost": [
+      {
+        "@type": "BlogPosting",
+        "headline": "Missed call. Lost job.",
+        "datePublished": "2026-09-10",
+        "author": { "@type": "Organization", "name": "Lynkflow" },
+        "description": "Every unanswered call is money walking out the door. Rex answers every call 24/7 in English and Spanish.",
+        "url": "https://randomsci.github.io/Lynkflow_Website/posts.html#missed-call-lost-job"
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "It's not a lead problem. It's a phone problem.",
+        "datePublished": "2026-09-09",
+        "author": { "@type": "Organization", "name": "Lynkflow" },
+        "description": "A plumber in Ohio was losing 3 to 5 calls a day while on the job. The fix was not more leads.",
+        "url": "https://randomsci.github.io/Lynkflow_Website/posts.html#phone-problem-not-lead-problem"
+      }
+    ]
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     [data-theme="light"] {
-      --bg: #f5f4ef; --bg2: #eeedE6; --surface: #faf9f5;
+      --bg: #f5f4ef; --bg2: #eeede6; --surface: #faf9f5;
       --border: #d8d7cf; --text: #141412; --muted: #6e6e66;
       --inv-bg: #141412; --inv-text: #ffffff; --inv-muted: rgba(255,255,255,0.5);
-      --nav-bg: rgba(245,244,239,0.94); --card-bg: #faf9f5; --card-hover: #f5f4ef;
+      --nav-bg: rgba(245,244,239,0.94); --card-bg: #faf9f5;
     }
     [data-theme="dark"] {
       --bg: #0f0f0d; --bg2: #161614; --surface: #1a1a17;
-      --border: #2a2a26; --text: #e8e7e0; --muted: #7a7a70;
-      --inv-bg: #e8e7e0; --inv-text: #0f0f0d; --inv-muted: rgba(0,0,0,0.5);
-      --nav-bg: rgba(15,15,13,0.94); --card-bg: #1a1a17; --card-hover: #202020;
+      --border: #2a2a26; --text: #e8e7e0; --muted: #8a8a80;
+      --inv-bg: #e8e7e0; --inv-text: #0f0f0d; --inv-muted: rgba(0,0,0,0.55);
+      --nav-bg: rgba(15,15,13,0.94); --card-bg: #1a1a17;
     }
     html { scroll-behavior: smooth; }
     body { background: var(--bg); color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; transition: background 0.3s, color 0.3s; }
 
     nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; display: flex; align-items: center; justify-content: space-between; padding: 0 48px; height: 64px; background: var(--nav-bg); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); }
     .nav-logo { font-family: 'DM Serif Display', serif; font-size: 1.25rem; color: var(--text); text-decoration: none; }
-    .nav-right { display: flex; align-items: center; gap: 32px; }
-    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+    .nav-right { display: flex; align-items: center; gap: 28px; }
+    .nav-links { display: flex; align-items: center; gap: 30px; list-style: none; }
     .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.875rem; transition: color 0.15s; }
     .nav-links a:hover, .nav-links a.active { color: var(--text); }
-    .nav-cta { background: var(--text) !important; color: var(--bg) !important; padding: 9px 20px; border-radius: 6px; font-weight: 500 !important; font-size: 0.875rem; text-decoration: none; }
-    .theme-toggle { width: 36px; height: 36px; border-radius: 6px; border: 1px solid var(--border); background: transparent; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1rem; transition: background 0.15s; }
+    .nav-cta { background: var(--text); color: var(--bg); padding: 9px 20px; border-radius: 6px; font-weight: 500; font-size: 0.875rem; text-decoration: none; transition: opacity 0.15s; white-space: nowrap; }
+    .nav-cta:hover { opacity: 0.82; }
+    .theme-toggle { width: 36px; height: 36px; border-radius: 6px; border: 1px solid var(--border); background: transparent; color: var(--text); cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1rem; transition: background 0.15s; flex-shrink: 0; }
     .theme-toggle:hover { background: var(--bg2); }
     .nav-burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
-    .nav-burger span { display: block; width: 22px; height: 1.5px; background: var(--text); }
+    .nav-burger span { display: block; width: 22px; height: 1.5px; background: var(--text); transition: all 0.3s; }
+    .nav-burger.open span:nth-child(1) { transform: rotate(45deg) translate(4px, 4px); }
+    .nav-burger.open span:nth-child(2) { opacity: 0; }
+    .nav-burger.open span:nth-child(3) { transform: rotate(-45deg) translate(4px, -4px); }
     .mobile-menu { display: none; position: fixed; top: 64px; left: 0; right: 0; z-index: 199; background: var(--nav-bg); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); padding: 24px 24px 32px; flex-direction: column; }
     .mobile-menu.open { display: flex; }
-    .mobile-menu a { color: var(--text); text-decoration: none; font-size: 1.1rem; padding: 16px 0; border-bottom: 1px solid var(--border); display: block; }
-    .mobile-menu .mobile-cta { margin-top: 20px; background: var(--text); color: var(--bg) !important; padding: 14px; border-radius: 6px; text-align: center; font-weight: 500; border-bottom: none !important; }
+    .mobile-menu a { color: var(--text); text-decoration: none; font-size: 1.05rem; padding: 16px 0; border-bottom: 1px solid var(--border); display: block; }
+    .mobile-menu .mobile-cta { margin-top: 20px; background: var(--text); color: var(--bg); padding: 14px; border-radius: 6px; text-align: center; font-weight: 500; border-bottom: none; }
 
     .page-header { max-width: 1100px; margin: 0 auto; padding: 120px 48px 64px; border-bottom: 1px solid var(--border); }
     .page-header-tag { font-size: 0.72rem; font-weight: 500; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 20px; display: flex; align-items: center; gap: 14px; }
@@ -47,36 +106,36 @@
     .page-header p { font-size: 0.95rem; color: var(--muted); font-weight: 300; max-width: 480px; line-height: 1.75; }
 
     .posts-container { max-width: 1100px; margin: 0 auto; padding: 0 48px 80px; }
-
     .post-entry { padding: 64px 0; border-bottom: 1px solid var(--border); max-width: 720px; }
     .post-entry:last-child { border-bottom: none; }
     .post-entry-tag { font-size: 0.7rem; font-weight: 500; color: var(--muted); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 16px; }
     .post-entry-title { font-family: 'DM Serif Display', serif; font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 400; letter-spacing: -0.02em; color: var(--text); line-height: 1.15; margin-bottom: 8px; }
-    .post-entry-date { font-size: 0.78rem; color: var(--muted); padding-bottom: 36px; margin-bottom: 36px; border-bottom: 1px solid var(--border); }
+    .post-entry-date { font-size: 0.78rem; color: var(--muted); padding-bottom: 32px; margin-bottom: 32px; border-bottom: 1px solid var(--border); }
 
-    /* Video embed */
-    .post-video { margin-bottom: 36px; border-radius: 8px; overflow: hidden; background: #0a0a08; max-width: 540px; }
+    .post-video { margin-bottom: 32px; border-radius: 8px; overflow: hidden; background: #0a0a08; max-width: 520px; border: 1px solid var(--border); }
     .post-video video { width: 100%; display: block; }
 
     .post-entry-body p { font-size: 0.97rem; color: var(--muted); font-weight: 300; line-height: 1.85; margin-bottom: 22px; }
     .post-entry-body p strong { color: var(--text); font-weight: 500; }
     .post-entry-body h2 { font-family: 'DM Serif Display', serif; font-size: 1.3rem; font-weight: 400; color: var(--text); margin: 40px 0 14px; letter-spacing: -0.01em; }
-    .cta-inline { margin-top: 36px; display: inline-flex; align-items: center; gap: 8px; background: var(--text); color: var(--bg); font-size: 0.88rem; font-weight: 500; padding: 12px 22px; border-radius: 6px; text-decoration: none; transition: opacity 0.15s; }
+    .cta-inline { margin-top: 32px; display: inline-flex; align-items: center; gap: 8px; background: var(--text); color: var(--bg); font-size: 0.88rem; font-weight: 500; padding: 12px 22px; border-radius: 6px; text-decoration: none; transition: opacity 0.15s; }
     .cta-inline:hover { opacity: 0.82; }
 
-    footer { background: var(--inv-bg); border-top: 1px solid rgba(255,255,255,0.07); }
+    footer { background: var(--inv-bg); border-top: 1px solid var(--border); }
     .footer-inner { max-width: 1100px; margin: 0 auto; padding: 28px 48px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
     footer p, footer a { font-size: 0.78rem; color: var(--inv-muted); text-decoration: none; }
-    footer a:hover { color: rgba(255,255,255,0.7); }
+    footer a:hover { color: var(--inv-text); }
     .footer-links { display: flex; gap: 24px; }
 
     @media (max-width: 860px) {
       nav { padding: 0 24px; }
       .nav-links { display: none; }
       .nav-burger { display: flex; }
+      .nav-right { gap: 12px; }
+      .nav-cta { display: none; }
       .page-header { padding: 100px 24px 48px; }
       .posts-container { padding: 0 24px 60px; }
-      .footer-inner { padding: 24px; flex-direction: column; }
+      .footer-inner { padding: 24px; flex-direction: column; gap: 16px; }
     }
   </style>
 </head>
@@ -93,7 +152,7 @@
       </ul>
       <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">&#9790;</button>
       <a href="index.html#contact" class="nav-cta">Get in touch</a>
-      <button class="nav-burger" id="burger"><span></span><span></span><span></span></button>
+      <button class="nav-burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
   </nav>
 
@@ -105,22 +164,22 @@
     <a href="index.html#contact" class="mobile-cta">Get in touch</a>
   </div>
 
-  <div class="page-header">
+  <header class="page-header">
     <div class="page-header-tag">Insights</div>
     <h1>From the Lynkflow blog.</h1>
-    <p>Real talk about missed calls, local business automation, and AI voice agents — updated regularly.</p>
-  </div>
+    <p>Real talk about missed calls, local business automation, and AI voice agents &#8212; updated regularly.</p>
+  </header>
 
-  <div class="posts-container">
+  <main class="posts-container">
 
     <!-- POSTS_START — Claude prepends new post entries here, newest first -->
 
     <article class="post-entry" id="missed-call-lost-job">
       <div class="post-entry-tag">Video</div>
-      <div class="post-entry-title">Missed call. Lost job.</div>
-      <div class="post-entry-date">September 10, 2026</div>
+      <h2 class="post-entry-title">Missed call. Lost job.</h2>
+      <div class="post-entry-date"><time datetime="2026-09-10">September 10, 2026</time></div>
       <div class="post-video">
-        <video autoplay loop muted playsinline>
+        <video autoplay loop muted playsinline aria-label="Lynkflow animation: missed call means lost job">
           <source src="https://media.posteverywhere.ai/users/11145/2026/09/08/video/1788899232734_lynkflow_missed_call_ad.mp4" type="video/mp4" />
         </video>
       </div>
@@ -129,13 +188,13 @@
         <p>The person who called you also called three other businesses. The one that picked up got the job. You didn't even know they called.</p>
         <p><strong>Rex answers every call. 24 hours a day, 7 days a week. In English and Spanish.</strong></p>
       </div>
-      <a href="tel:+14013869119" class="cta-inline">Call Rex — Live Demo</a>
+      <a href="tel:+14013869119" class="cta-inline">Call Rex &#8212; Live Demo</a>
     </article>
 
     <article class="post-entry" id="phone-problem-not-lead-problem">
       <div class="post-entry-tag">Plumbing</div>
-      <div class="post-entry-title">It's not a lead problem. It's a phone problem.</div>
-      <div class="post-entry-date">September 9, 2026</div>
+      <h2 class="post-entry-title">It's not a lead problem. It's a phone problem.</h2>
+      <div class="post-entry-date"><time datetime="2026-09-09">September 9, 2026</time></div>
       <div class="post-entry-body">
         <p>A plumber in Ohio told me he was losing 3 to 5 calls a day while working on jobs.</p>
         <p>He couldn't answer while under a sink. By the time he called back, they already hired someone else.</p>
@@ -145,41 +204,48 @@
         <p>He stopped losing those calls the same week.</p>
         <h2>The calls you don't know about are the ones that hurt most</h2>
         <p>Most contractors assume they're losing maybe one or two calls a week. The reality is usually much worse. Every unanswered call is a job that went to whoever picked up next on Google.</p>
-        <p><strong>If your phone is your pipeline, you can't afford to miss a single call.</strong> Rex answers every one — day or night, on the job or off.</p>
+        <p><strong>If your phone is your pipeline, you can't afford to miss a single call.</strong> Rex answers every one &#8212; day or night, on the job or off.</p>
       </div>
-      <a href="tel:+14013869119" class="cta-inline">Call Rex — Live Demo</a>
+      <a href="tel:+14013869119" class="cta-inline">Call Rex &#8212; Live Demo</a>
     </article>
 
     <!-- POSTS_END -->
 
-  </div>
+  </main>
 
   <footer>
     <div class="footer-inner">
       <p>&#169; <span id="year"></span> Lynkflow</p>
       <div class="footer-links">
-        <a href="posts.html">Insights</a>
+        <a href="index.html">Home</a>
         <a href="mailto:lynkflowagent@gmail.com">lynkflowagent@gmail.com</a>
       </div>
     </div>
   </footer>
 
   <script>
-    const burger = document.getElementById('burger');
-    const mobileMenu = document.getElementById('mobileMenu');
-    burger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
-    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.remove('open')));
-
-    const themeToggle = document.getElementById('themeToggle');
-    const html = document.documentElement;
-    const saved = localStorage.getItem('lynkflow-theme') || 'light';
-    html.setAttribute('data-theme', saved);
-    themeToggle.textContent = saved === 'dark' ? '\u2600' : '\u263E';
+    // Dynamic year
     document.getElementById('year').textContent = new Date().getFullYear();
 
+    // Mobile menu
+    const burger = document.getElementById('burger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    burger.addEventListener('click', () => {
+      burger.classList.toggle('open');
+      mobileMenu.classList.toggle('open');
+    });
+    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      burger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+    }));
+
+    // Theme toggle
+    const themeToggle = document.getElementById('themeToggle');
+    const root = document.documentElement;
+    themeToggle.textContent = root.getAttribute('data-theme') === 'dark' ? '\u2600' : '\u263E';
     themeToggle.addEventListener('click', () => {
-      const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-      html.setAttribute('data-theme', next);
+      const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
       localStorage.setItem('lynkflow-theme', next);
       themeToggle.textContent = next === 'dark' ? '\u2600' : '\u263E';
     });
